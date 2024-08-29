@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AppLayout from './layout/AppLayout';
+
+import Homepage from './pages/Homepage/Homepage';
+import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
+import MoviePage from './pages/Movie/MoviePage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        
+        <Route path ="/" element={<AppLayout/>}>
+          <Route index element={<Homepage/>}/> //index = 부모path 그대로 쓰겠다. path ="/" 
+          <Route path="/movies" element={<MoviePage/>}/>
+          <Route path="/movie/:id" element={<MovieDetailPage/>}/>
+        </Route>
+      
+      </Routes>
     </div>
   );
 }
