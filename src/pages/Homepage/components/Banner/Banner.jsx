@@ -15,12 +15,12 @@ const Banner = () => {
        <Alert variant='danger'>{error.message}</Alert>
     }
      return ( <div style={{
-        backgroundImage:"url("+`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data.results[0].poster_path}`+")" 
+        backgroundImage:"url("+`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data?.results[0].poster_path}`+")" 
      }} className='banner'>
         
         <div className='banner-text-area'>
-            <h1 className='title'>{data.results[0].title}</h1>
-            <p>{data.results[0].overview}</p>
+            <h1 className='title'>{data?.results[0].title}</h1>
+            <p>{data?.results[0].overview}</p>
         </div>
      </div>
   )
