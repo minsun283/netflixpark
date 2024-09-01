@@ -2,3 +2,7 @@ body{
   background-color: black !important;
   color:#fff!important;
 }
+
+a{
+  text-decoration-line: none;
+}

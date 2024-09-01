@@ -1,0 +1,19 @@
+.carousel-container{
+    overflow: hidden;
+    height: 440px;
+   
+}
+.main-title{
+    font-size: 32px;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: 70px;
+}
+
+@media screen and (max-width: 63rem) {
+    .carousel-container{
+        overflow: hidden;
+        height: 440px;
+        padding-left: 80px;
+    }
+}
