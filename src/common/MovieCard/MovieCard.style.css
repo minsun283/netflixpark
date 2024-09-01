@@ -3,9 +3,18 @@
     height: 330px;
     background-size: cover;
     cursor: pointer;
-    
+
 }
 
+@media screen and (max-width: 63rem) {
+    .movie-card{
+        width: 170px;
+        height: 260px;
+        background-size: cover;
+        cursor: pointer;
+        margin-left: 80px;
+    }
+}
 .overlay{
     padding: 1em;
     width: 100%;
@@ -18,7 +27,7 @@
     border: 3px solid white;
 }
 .movie-card:hover{
-    transform: scale(1.2);
+    transform: scale(1.2) translateZ(40px);
     z-index: 2;
     transition:0.5s;
 }

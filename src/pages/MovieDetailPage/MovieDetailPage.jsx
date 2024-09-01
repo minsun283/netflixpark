@@ -3,7 +3,7 @@ import { Container,Row,Col,Alert } from 'react-bootstrap';
 import { useMovieDetailQuery } from '../../hooks/useMovieDetail';
 import { useParams } from 'react-router-dom';
 import { useMovieReviewQuery } from '../../hooks/useMovieReview';
-
+import './MovieDetailPage.style.css'
 const MovieDetailPage = () => {
    let{id}=useParams();
   console.log("params",id)
@@ -20,9 +20,9 @@ const MovieDetailPage = () => {
   return (
     <Container>
       <Row>
-        <Col> <img className='detail-img' width={450} src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${data?.poster_path}`}/></Col>
-        <Col>
-        <h1>{data?.title}</h1> 
+        <Col className='col-md'> <img className='detail-img' src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${data?.poster_path}`}/></Col>
+        <Col className='col-md'>
+        <div className='title-font'>{data?.title}</div> 
         <div>{data?.overview}</div>
         <hr/>
         <span className='font-size margin'><img src={"https://cdn1.iconfinder.com/data/icons/utilities-part-1/64/calendar-128.png"} style={{width:17}}/> {data?.release_date}</span>
