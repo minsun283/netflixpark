@@ -1,5 +1,19 @@
 .detail-img{
-    width: 800px;
+    width: 500px;
+}
+
+.title-font{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.button-deco{
+color: rgb(153, 153, 153);
+
+width: 250px;
+font-size: 20px;
+
 }
 
 @media screen and (max-width: 63rem) {

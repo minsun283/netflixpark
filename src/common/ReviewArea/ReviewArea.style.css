@@ -1,0 +1,13 @@
+.review-deco{
+    border: 1px solid #4f4f4f;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 20px;
+
+}
+.name-size{
+    font-size: 20px;
+}
+.sub-cont{
+    color:rgb(102, 102, 102)
+}

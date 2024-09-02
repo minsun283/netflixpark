@@ -3,7 +3,6 @@ import api from "../utils/api";
 
 
 const fetchMovieReview=({id})=>{
-    
     return api.get(`/movie/${id}/reviews`)
 }
 
