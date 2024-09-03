@@ -6,8 +6,6 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
 
-
-
 const MoviePage = () => {
   const[query,setQuery]=useSearchParams()
   const keyword=query.get("q");
@@ -16,7 +14,7 @@ const MoviePage = () => {
   const handlePageClick =({selected})=>{
     setPage(selected+1)
   }
-
+  
   const {data, isLoading, isError, error}= useSearchMovieQuery({keyword, page});
   
   if(isLoading){
@@ -42,7 +40,7 @@ const MoviePage = () => {
           </Col>
         ))}
       </Row>
-
+        <div className='pagi-css'>
       <ReactPaginate
        
         nextLabel="next >"
@@ -64,7 +62,7 @@ const MoviePage = () => {
         activeClassName="active"
         renderOnZeroPageCount={null}
         forcePage={page-1}
-      />
+      /></div>
 
 
       </Col>

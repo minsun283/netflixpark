@@ -27,4 +27,8 @@ font-size: 20px;
         font-weight: bold;
         margin-top: 20px;
     }
+
+    .review-css{
+        width: 50%;
+    }
 }
