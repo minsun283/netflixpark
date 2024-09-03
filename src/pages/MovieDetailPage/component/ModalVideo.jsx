@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import './ModalVideo.style.css'
 import YouTube from 'react-youtube';
 
-
   const MyVerticallyCenteredModal = props => {
     const onPlayerReady = event => {
       // access to player in all event handlers via event.target
@@ -19,7 +18,6 @@ import YouTube from 'react-youtube';
         controls: 1,
       },
     };
-  
 
 
 

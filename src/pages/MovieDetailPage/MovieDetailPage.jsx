@@ -31,6 +31,7 @@ const MovieDetailPage = () => {
   const {data:videoDate } =useMovieVideoQuery({id})
   console.log("비디오",videoDate)
 
+  
   const [modalShow, setModalShow] = React.useState(false); //모달
 
   if(isLoading){
