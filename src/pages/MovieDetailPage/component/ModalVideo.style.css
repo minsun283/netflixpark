@@ -1,3 +1,11 @@
 .font{
     color:black
 }
+
+.video-box{
+    width: 100%;
+}
+@media screen and (max-width: 63rem) {
+
+
+}

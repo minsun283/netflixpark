@@ -10,7 +10,7 @@ import { useMovieRecommendQuery } from '../../hooks/useMovieRecommend';
 import { responsive} from '../../constants/responsiveDetail';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { useMovieVideoQuery } from '../../hooks/useMovieVideos';
-import MyVerticallyCenteredModal from './component/ModalVideo.jsx';
+import ModalComponent from './component/ModalVideo.jsx';
 
 const MovieDetailPage = () => {
   
@@ -41,14 +41,11 @@ const MovieDetailPage = () => {
 }
 
 
-
   return (
     <Container>
       <Row>
         <Col className='col-md'> <img className='detail-img' src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${data?.poster_path}`}/></Col>
         <Col className='col-md'>
-
-
             
         <div className='title-font'>{data?.title}</div> 
         <h5 className='mb-3'>{data?.tagline}</h5> 
@@ -72,7 +69,7 @@ const MovieDetailPage = () => {
             <Button className='mt-5 play-button' variant='danger' onClick={() => setModalShow(true)}>
               <h4>Youtube Video <img style={{width:36}} src="https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_play_circle_filled_white_48px-128.png"/></h4>
             </Button>
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} movieID={videoDate.result?.key} />
+            <ModalComponent show={modalShow} movieId={videoDate.result?.key} onHide={() => setModalShow(false)} />
           </div>
 
 

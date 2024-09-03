@@ -27,8 +27,8 @@
     .title_text{
         display: block;
             width: 100%;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 17px;
+            font-weight: 500;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: normal;

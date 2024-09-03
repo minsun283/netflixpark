@@ -22,7 +22,7 @@ const ReviewArea = ({review, children, maxChars=30}) => {
     {isShowMore?'..[더보기]' : '[닫기]'}
   </div>
             
-            <div className='sub-cont'> {review.created_at}</div>
+            <div className='sub-cont'> {(review.created_at).slice(0,10)}</div>
 
             
          </div>
