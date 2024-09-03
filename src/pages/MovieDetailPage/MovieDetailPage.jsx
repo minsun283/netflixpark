@@ -24,17 +24,8 @@ const MovieDetailPage = () => {
   console.log("dddata",data)
 
   const {data:genreDate } = useMovieGenreQuery()
-console.log("genre",genreDate)
+console.log("장르",genreDate)
 
-const showGenre =(genreIdList)=>{
-  if(!genreDate) return [];
-  const genreNameList = genreIdList.map((id)=>{
-    const genreObj = genreDate.find((genre)=>genre.id===id);
-    return genreObj.name;
-  });
-
-  return genreNameList;
-}
 
 
   if(isLoading){
@@ -53,13 +44,13 @@ const showGenre =(genreIdList)=>{
 
 
         <div className='mt-3'>
-            {showGenre(data.genre_ids).map((genre, index)=>(
-                <Badge bg="danger" key ={index} className="badge">{genre}</Badge>
+            {data.genres && data.genres.map((name)=>( 
+                <Badge bg="danger" style={{fontSize:16}}>{name.name}</Badge>
             ))}</div>
 
             
         <div className='title-font'>{data?.title}</div> 
-        <h5>{data?.tagline}</h5> 
+        <h5 className='mb-3'>{data?.tagline}</h5> 
       
         <span className='font-size margin' style={{fontSize:20}}><img src={"https://cdn1.iconfinder.com/data/icons/utilities-part-1/64/calendar-128.png"} style={{width:21}}/> {data?.release_date}   </span>
          <span className='font-size ms-3' style={{fontSize:20}}><img src={"https://cdn4.iconfinder.com/data/icons/essentials-72/24/029_-_Star-512.png"} style={{width:21}}/> {(data?.vote_average).toFixed(1)}</span>
@@ -67,12 +58,12 @@ const showGenre =(genreIdList)=>{
             <div>{data?.overview}</div>
         <hr/>
             <div className="mt-4 button-deco">Language : {data?.original_language}</div>
-            <div className="mt-4 button-deco" >Revenue : ${data?.revenue}</div> 
+            <div className="mt-4 button-deco" >Revenue : ${(data?.revenue).toLocaleString()}</div> 
             <div className="mt-4 button-deco">Run time : {data?.runtime}분</div>
             <div>
 
             <Button className="mt-4" style={{width:200}} variant="danger" >
-            Preview
+            <h3>예고편보기</h3>
       </Button>
 
               
