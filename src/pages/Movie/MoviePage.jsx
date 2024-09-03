@@ -6,6 +6,8 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
 
+
+
 const MoviePage = () => {
   const[query,setQuery]=useSearchParams()
   const keyword=query.get("q");
@@ -32,14 +34,16 @@ const MoviePage = () => {
       </Col>
       <Col lg={8} xs={12}>
       
+      
       <Row className="box-deco" >
-        
         {data?.results.map((movie,index)=>(
           <Col key={index} lg={4} xs={12}>
           <MovieCard movie={movie}/>
           </Col>
         ))}
       </Row>
+
+
         <div className='pagi-css'>
       <ReactPaginate
        
