@@ -5,50 +5,78 @@ import { Container,Alert ,Row,Col} from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
-
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
 
 const MoviePage = () => {
   const[query,setQuery]=useSearchParams()
   const keyword=query.get("q");
 
+  //장르
+  const genre=query.get("genre");
+  const [selectedGenre, setSelectedGenre] = useState(null);
+
+
+  //페이지네이션
   const [page, setPage]=useState(1)
   const handlePageClick =({selected})=>{
     setPage(selected+1)
   }
 
+  const {data:genreData}= useMovieGenreQuery()
 
   const {data, isLoading, isError, error}= useSearchMovieQuery({keyword, page});
-
-
-  const handleNewClick = () => {
-    (data.results).sort((a,b)=> b.vote_average - a.vote_average)
-    console.log("dkdkdkdk",data)
-  };
-
   
   if(isLoading){
     return <h1>Loading...</h1>
 }if(isError){
     return <Alert variant='danger'>{error.message}</Alert>
 }
+console.log("dkdkdkdk",data)
+
+const filterData = data.results.filter((data)=>
+  selectedGenre ? data.genre_ids.includes(Number(selectedGenre)) : true ) || [];
+
+
+
+const handleNewClick = () => {
+  data.results.sort((a,b)=> b.vote_average - a.vote_average)
+  console.log("클릭",data)
+  };
+
+  const handleShowAll=()=>{
+    setSelectedGenre(null);
+    setPage(1);
+  }
+
+
+  const handleGenreClick = (genreId)=>{
+    setSelectedGenre(genreId)
+    setPage(1);
+  }
+
 
 
   return (
     <Container className="container-sm">
       <Row>
       <Col lg={4} xs={12}>
-      <div className='filter'>
+      <div>
         
-      <button onClick={handleNewClick}>최신순</button>
 
+      <button onClick={handleShowAll} className='btn-deco'>  All  </button>
+
+      {genreData && genreData.map((genre)=>(
+        <button className='btn-deco' key={genre.id} onClick={()=>handleGenreClick(genre.id)}>{genre.name}</button>
+
+      ))}
       </div>
       </Col>
       <Col lg={8} xs={12}>
       
       
-      <Row className="box-deco" >
-        {data.results?.map((movie,index)=>(
+      <Row >
+        {filterData?.map((movie,index)=>(
           <Col key={index} lg={4} xs={12}>
           <MovieCard movie={movie}/>
           </Col>
@@ -57,8 +85,8 @@ const MoviePage = () => {
 
 
         <div className='pagi-css'>
+
       <ReactPaginate
-       
         nextLabel="next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}

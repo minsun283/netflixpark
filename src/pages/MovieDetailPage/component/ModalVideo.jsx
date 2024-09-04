@@ -4,9 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import './ModalVideo.style.css'
 import YouTube from 'react-youtube';
 
-  const ModalComponent = props => {
+  const ModalComponent = (props) => {
 
-    const onPlayerReady = event => {
+   const onPlayerReady = (event) => {
       // access to player in all event handlers via event.target
       event.target.pauseVideo();
     };

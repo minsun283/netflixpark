@@ -3,8 +3,12 @@
     width: 80%;
 }
 
-.filter{
-    text-align: center;
+.btn-deco{
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    font-size:1rem;
+    border-radius: 10px;
 }
 
 .pagi-css{
