@@ -13,3 +13,5 @@ export const useMovieVideoQuery=({id})=>{
         select:(result)=>result.data,
     })
 }
+
+

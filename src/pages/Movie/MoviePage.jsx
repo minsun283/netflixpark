@@ -16,8 +16,16 @@ const MoviePage = () => {
   const handlePageClick =({selected})=>{
     setPage(selected+1)
   }
-  
+
+
   const {data, isLoading, isError, error}= useSearchMovieQuery({keyword, page});
+
+
+  const handleNewClick = () => {
+    (data.results).sort((a,b)=> b.vote_average - a.vote_average)
+    console.log("dkdkdkdk",data)
+  };
+
   
   if(isLoading){
     return <h1>Loading...</h1>
@@ -30,13 +38,17 @@ const MoviePage = () => {
     <Container className="container-sm">
       <Row>
       <Col lg={4} xs={12}>
-      <div className='filter'>필터</div>
+      <div className='filter'>
+        
+      <button onClick={handleNewClick}>최신순</button>
+
+      </div>
       </Col>
       <Col lg={8} xs={12}>
       
       
       <Row className="box-deco" >
-        {data?.results.map((movie,index)=>(
+        {data.results?.map((movie,index)=>(
           <Col key={index} lg={4} xs={12}>
           <MovieCard movie={movie}/>
           </Col>

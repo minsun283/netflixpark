@@ -9,8 +9,9 @@ import MovieSlider from '../../common/MovieSlider/MovieSlider';
 import { useMovieRecommendQuery } from '../../hooks/useMovieRecommend';
 import { responsive} from '../../constants/responsiveDetail';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
-import { useMovieVideoQuery } from '../../hooks/useMovieVideos';
 import ModalComponent from './component/ModalVideo.jsx';
+import { useMovieVideoQuery } from '../../hooks/useMovieVideos';
+
 
 const MovieDetailPage = () => {
   
@@ -28,11 +29,15 @@ const MovieDetailPage = () => {
   const {data:genreDate } = useMovieGenreQuery()
   console.log("장르",genreDate)
 
-  const {data:videoDate } =useMovieVideoQuery({id})
-  console.log("비디오",videoDate)
 
-  
+  const {data:videoData } = useMovieVideoQuery({id})
+  const trailerKey = videoData?.results?.[0]?.key;
+  console.log("비디오 ㅇㅇ",videoData)
+
+
   const [modalShow, setModalShow] = React.useState(false); //모달
+
+ 
 
   if(isLoading){
     return <h1>Loading...</h1>
@@ -69,7 +74,7 @@ const MovieDetailPage = () => {
             <Button className='mt-5 play-button' variant='danger' onClick={() => setModalShow(true)}>
               <h4>Youtube Video <img style={{width:36}} src="https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_play_circle_filled_white_48px-128.png"/></h4>
             </Button>
-            <ModalComponent show={modalShow} movieId={videoDate.result?.key} onHide={() => setModalShow(false)} />
+            <ModalComponent show={modalShow} movieID={trailerKey} onHide={() => setModalShow(false)} />
           </div>
 
 

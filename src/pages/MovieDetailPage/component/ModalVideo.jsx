@@ -4,7 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import './ModalVideo.style.css'
 import YouTube from 'react-youtube';
 
-  const ModalComponent = video => {
+  const ModalComponent = props => {
+
     const onPlayerReady = event => {
       // access to player in all event handlers via event.target
       event.target.pauseVideo();
@@ -23,17 +24,17 @@ import YouTube from 'react-youtube';
 
     return (
       
-      <Modal {...video} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
+      <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
        
         <Modal.Body>
         <div>
 
-        <YouTube videoId="2g811Eo7K8U" opts={opts} />;
+        <YouTube videoId={props.movieID} opts={opts} />;
 
         </div>
         </Modal.Body>
         <Modal.Footer>
-        <Button onClick={video.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
       </Modal>
     );

@@ -16,6 +16,7 @@
         cursor: pointer;
         margin-left: 80px;
         border-radius: 10px;
+        font-size: 14px;
     }
     .movie-card:hover{
         transform: scale(1.2) translateZ(30px);
@@ -23,30 +24,15 @@
         transition:0.5s;
         
     }
+   
 
-    .title_text{
-        display: block;
-            width: 100%;
-            font-size: 17px;
-            font-weight: 500;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: normal;
-            line-height: 1.2;
-          
-            text-align: left;
-            word-wrap: break-word;
-            display: -webkit-box;
-            -webkit-line-clamp: 3 ;
-            -webkit-box-orient: vertical;
-    }
 }
 
 .title_text{
     display: block;
         width: 100%;
         font-size: 24px;
-        font-weight: bold;
+        font-weight: 700;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
@@ -78,8 +64,7 @@
 .badge{
  margin: 3px;
 }
-
-.font-size{
+.sub-size{
     font-size: 14px;
 }
 
