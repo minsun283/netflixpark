@@ -69,6 +69,16 @@
         position:relative;
         left: -80px;
     }
+    .pagination {
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        text-decoration: none;
+    
+      }
+      
 }
 
 
@@ -79,7 +89,7 @@
     justify-content: center;
     list-style: none;
     text-decoration: none;
-    gap:1rem;
+
     > * {
       cursor: pointer;
     }
