@@ -23,7 +23,7 @@ const MoviePage = () => {
     setPage(selected+1)
   }
 
-  const {data:genreData}= useMovieGenreQuery()
+  const {data:genreData, isLoading: genresLoading}= useMovieGenreQuery()
 
   const {data, isLoading, isError, error}= useSearchMovieQuery({keyword, page});
   
@@ -72,6 +72,9 @@ const handleNewClick = () => {
 
        </div>
 
+       {!isLoading && filterData && filterData.length === 0 && (
+        <Alert variant='danger' className='mt-5 me-2 ms-2'>검색 결과가 없습니다.</Alert>
+      )}
 
       <div className='content'>
         <div className='item-align'>
