@@ -6,6 +6,7 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 
 const MoviePage = () => {
@@ -86,15 +87,15 @@ const handleNewClick = () => {
         </div>
 
 
-        <div className='pagi-css'>
+        <div>
 
       <ReactPaginate
-        nextLabel=">"
+        nextLabel={<FiChevronRight className="page-arrow" /> }
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={data?.total_pages}
-        previousLabel="<"
+        previousLabel={<FiChevronLeft />}
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"
@@ -109,7 +110,7 @@ const handleNewClick = () => {
         renderOnZeroPageCount={null}
         forcePage={page-1}
       /></div>
-
+      
 
 </div>
 </div>

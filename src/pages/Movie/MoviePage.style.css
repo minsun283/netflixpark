@@ -70,3 +70,37 @@
         left: -80px;
     }
 }
+
+
+.pagination {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+    gap:1rem;
+    > * {
+      cursor: pointer;
+    }
+  }
+  
+ 
+  .pagination .page-item .page-link {
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
+.page-item{
+    color: black;
+    background-color: black;
+    text-decoration: none;
+    border: none;
+}
+
+.page-item.active .page-link {
+    font-weight: 900;
+    background-color: red;
+    border-radius: 30px;
+   
+}
