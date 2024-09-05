@@ -1,16 +1,72 @@
-.box-deco{
-   
-    width: 80%;
+.movie-page {
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow-x: hidden;
 }
+
 
 .btn-deco{
     margin: 5px;
     padding: 10px;
+    background-color: black;
+    color:rgb(176, 176, 176);
+    border: 1px solid rgb(176, 176, 176);
+    font-size:1rem;
+    border-radius: 10px;
+}
+
+.btn-active{
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(211, 36, 36);
+    color: white;
     border: none;
     font-size:1rem;
     border-radius: 10px;
 }
 
 .pagi-css{
+    margin-top: 50px;
+   
+   
+}
+
+.item-align{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.tab-genre{
+    width: 50%;
+    margin-top: 50px;
+}
+.item-css{
     margin: 10px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+@media screen and (max-width: 63rem) {
+  
+    .tab-genre{
+        width: 90%;
+        margin: 20px;
+    }
+
+    .item-css{
+        width: 140px;
+        height: 260px;
+    }
+    .item-align{
+        margin: 10px;
+        display: grid;
+        grid-template-columns : 1fr 1fr;
+        position:relative;
+        left: -80px;
+    }
 }

@@ -58,30 +58,29 @@ const handleNewClick = () => {
 
 
   return (
-    <Container className="container-sm">
-      <Row>
-      <Col lg={4} xs={12}>
-      <div>
-        
 
-      <button onClick={handleShowAll} className='btn-deco'>  All  </button>
+      <div className='movie-page'>
+        
+      <div className='tab-genre'>
+      <button onClick={handleShowAll} className={selectedGenre === null ? 'btn-active' : 'btn-deco'}>  All  </button>
+   
 
       {genreData && genreData.map((genre)=>(
-        <button className='btn-deco' key={genre.id} onClick={()=>handleGenreClick(genre.id)}>{genre.name}</button>
+        <button key={genre.id} onClick={()=>handleGenreClick(genre.id)} className={selectedGenre === genre.id ? 'btn-active' : 'btn-deco'}>{genre.name}</button>
 
       ))}
-      </div>
-      </Col>
-      <Col lg={8} xs={12}>
-      
-      
-      <Row >
+
+       </div>
+
+
+      <div className='content'>
+        <div className='item-align'>
         {filterData?.map((movie,index)=>(
-          <Col key={index} lg={4} xs={12}>
-          <MovieCard movie={movie}/>
-          </Col>
+          <div className='item-css'>
+          <MovieCard movie={movie}/></div>
+         
         ))}
-      </Row>
+        </div>
 
 
         <div className='pagi-css'>
@@ -109,10 +108,8 @@ const handleNewClick = () => {
       /></div>
 
 
-      </Col>
-      </Row>
-        
-        </Container>
+</div>
+</div>
   )
 }
 
