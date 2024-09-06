@@ -81,7 +81,12 @@
       
 }
 
-
+.sort-deco{
+    margin-top: 50px;
+    background-color: black;
+    border: none;
+    color:white
+}
 .pagination {
     margin-top: 2rem;
     width: 100%;
